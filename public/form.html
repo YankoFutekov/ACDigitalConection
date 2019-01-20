@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <link type="text/css" rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300i,400,500,700&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
+    <link rel="stylesheet" href="materialize-stepper.min.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Regime Questionnaire</title>
+</head>
+
+<body>
+    <form action="/form.html" method="POST" id="regimeQuestionnaire">
+        <div class="container">
+            <header class="center">
+                <h2 class="formTitle">Въпросник за персонален режим</h2>
+            </header>
+            <ul class="stepper linear">
+                <li class="step active">
+                    <div class="step-title waves-effect">Лична Информация</div>
+                    <div class="step-content">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="name" name="name" type="text" minlength="5" required title="Това поле е задължително.">
+                                <label for="name">Име и фамилия</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <input id="phone" name="phone" type="number"  required title="Това поле е задължително.">
+                                <label for="phone">Телефон</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <input id="email" name="email" type="email"  required title="Това поле е задължително.">
+                                <label for="email">Имейл</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <input id="age" name="age" type="number" min="12" max="85"  required title="Това поле е задължително.">
+                                <label for="age">Години</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <input id="weight" name="weight" type="number" step="any" min="0" max="250"  required title="Това поле е задължително.">
+                                <label for="weight">Килограми</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <input id="height" name="height" type="number" step="any" min="0" max="250"  required title="Това поле е задължително.">
+                                <label for="height">Височина</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <p class="p-question">Пол</p>
+                                <p>
+                                    <input name="gender" type="radio" id="male"  required title="Това поле е задължително." value="Мъж" />
+                                    <label class="radioB" for="male">Мъж</label>
+                                </p>
+                                <p>
+                                    <input name="gender" type="radio" id="female" value="Жена"/>
+                                    <label class="radioB" for="female">Жена</label>
+                                </p>
+                                <div class="step-actions">
+                                    <button class="waves-dark btn buttons2 next-step">Продължи</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="step">
+                    <div class="step-title waves-effect">Тренировъчни преференции</div>
+                    <div class="step-content">
+                        <div class="row">
+                         <div class="input-field col s12">
+                            <p class="p-question">Какъв режим желаете да бъде изготвен за вас ?</p>
+                            <p>
+                                <input name="regimes" type="radio" id="nutritionRegime"  required title="Това поле е задължително." value="Хранителен Режим-60"/>
+                                <label class="radioB" for="nutritionRegime">Хранителен режим - 60 лв.</label>
+                            </p>
+                            <p>
+                                <input name="regimes" type="radio" id="trainingRegime"  value="Тренировъчен Режим-70"/>
+                                <label class="radioB" for="trainingRegime">Тренировъчен режим - 70 лв.</label>
+                            </p>
+                            <p>
+                                <input name="regimes" type="radio" id="complexRegime" value="Комплексен Режим-95"/>
+                                <label class="radioB" for="complexRegime">Комплексен режим - 95 лв.</label>
+                            </p>
+                         </div>
+                        </div>
+                        <div class="input-field col s12">
+                            <p class="p-question">Какви са целите ви ?</p>
+                            <p>
+                                <input name="goals" type="radio" id="cut"  required title="Това поле е задължително." value="отслабване и оформяне"/>
+                                <label class="radioB" for="cut">Отслабване и оформяне</label>
+                            </p>
+                            <p>
+                                <input name="goals" type="radio" id="bulk"  value="качване на килограми и оформяне на мускулатурата"/>
+                                <label class="radioB" for="bulk">Качване на килограми и оформяне на мускулатурата</label>
+                            </p>
+                            <div class="input-field col s12">
+                                <p class="p-question">Спортувал/а ли сте преди ? Ако - ДА какво ?</p>
+                                <p>
+                                    <input name="before" type="radio" id="previousSportYes" value="да"  required title="Това поле е задължително."/>
+                                    <label class="radioB" for="previousSportYes">Да</label>
+                                </p>
+                                <p>
+                                    <input name="before" type="radio" id="previousSportNo"  value="не"/>
+                                    <label class="radioB" for="previousSportNo">Не</label>
+                                </p>
+                            </div>
+                            <div class="input-field col s12" id="beforeSport">
+                                <input id="beforeSports" name="beforeSports" type="text">
+                                <label for="beforeSports">Уточнете практикувания спорт:</label>
+                            </div>                     
+                        <div class="input-field col s12">
+                            <p class="p-question">Работата ви свързана ли е с физическа активност и натоварване? Активен/а ли сте през
+                                деня или
+                                сте повече седнал/а?</p>
+                            <p>
+                                <input name="work" type="radio" id="active"  required title="Това поле е задължително." value="aктивен съм през деня"/>
+                                <label class="radioB" for="active">Активен/а съм през деня</label>
+                            </p>
+                            <p>
+                                <input name="work" type="radio" id="inactive"  value="неaктивен съм през деня"/>
+                                <label class="radioB" for="inactive">Неактивен/а съм през деня</label>
+                            </p>
+                        </div>
+                    </div>
+                        <div class="step-actions">
+                            <button class="waves-dark btn buttons2 next-step">Продължи</button>
+                            <button class="btn-flat btn buttons3 previous-step">Назад</button>
+                        </div>  
+                    </div>               
+                </li>
+                <li class="step">
+                    <div class="step-title waves-effect">Здравна Информация</div>
+                    <div class="step-content">
+                        <div class="row">
+                        <div class="input-field col s12">
+                                <input id="recentIllness" name="recentIllness" type="text">
+                                <label id="recentIll" for="recentIllness">Кога за последно сте боледувал/а и от какво ?</label>
+                        </div>
+                        <div class="input-field col s12">
+                                <input id="illness" name="illness" type="text">
+                                <label for="illness">Имате ли други заболявания ?</label>
+                        </div>
+                        <div class="input-field col s12">
+                                <p class="p-question">Приемали ли сте антибиотик през последния месец ? </p>
+                                <p>
+                                    <input name="antibiotics" type="radio" id="antibioticsYes" value="да"/>
+                                    <label class="radioB" for="antibioticsYes">Да</label>
+                                </p>
+                                <p>
+                                    <input name="antibiotics" type="radio" id="antibioticsNo"  value="не"/>
+                                    <label class="radioB" for="antibioticsNo">Не</label>
+                                </p>
+                            </div>
+                            <div class="input-field col s12">
+                                <p class="p-question">Имате ли алергии ? </p>
+                                <p>
+                                    <input name="allergies" type="radio" id="allergiesYes"  required title="Това поле е задължително."  value="да"/>
+                                    <label class="radioB" for="allergiesYes">Да</label>
+                                </p>
+                                <p>
+                                    <input name="allergies" type="radio" id="allergiesNo"  value="не"/>
+                                    <label class="radioB" for="allergiesNo">Не</label>
+                                </p>
+                            </div>
+                            <div class="input-field col s12" id="allergiesFood">
+                                <input id="allergiesFoods" name="allergiesFoods" type="text">
+                                <label for="allergiesFoods">Алергични сте към:</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <p class="p-question">Забелязали ли сте поява на акне или подуване на корема след прием на някоя храна?</p>
+                                <p>
+                                    <input name="acne" type="radio" id="acneYes"  required title="Това поле е задължително." value="да"/>
+                                    <label class="radioB" for="acneYes">Да</label>
+                                </p>
+                                <p>
+                                    <input name="acne" type="radio" id="acneNo"  value="не"/>
+                                    <label class="radioB" for="acneNo">Не</label>
+                                </p>
+                            </div>
+                            <div class="input-field col s12" id="acneFood">
+                                <input id="acneFoods" name="acneFoods" type="text">
+                                <label for="acneFoods">Моля, уточнете храната:</label>
+                            </div>
+                        </div>
+                        <div class="step-actions">
+                            <button class="waves-dark btn buttons2 next-step">Продължи</button>
+                            <button class="btn-flat btn buttons3 previous-step">Назад</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="step">
+                    <div class="step-title waves-effect">Хранителни Преференции</div>
+                    <div class="step-content">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="frequentFoods" name="frequentFoods" type="text" required title="Това поле е задължително.">
+                                <label for="frequentFoods">Какви храни консумирате най-често?</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <input id="frequentMeals" name="frequentMeals" type="text" required title="Това поле е задължително.">
+                                <label for="frequentMeals">Колко пъти се храните дневно?</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <h5 class="center">Изберете храните които харесвате, за да бъде по-богата вашата диета:</h5>
+                                <div class="row" id="meatsFishAndDairyProducts">
+                                    <p class="p-foods">Меса, риба и млечни продукти</p>
+                                    <div class="warning-div row red-text center" id="meatsFishAndDairyProducts">Моля,
+                                        посочете поне
+                                        един продукт от тази секция.</div>
+                                    <div class="col s12 l4 m4 checkDiv">
+                                        <p>
+                                            <input type="checkbox" name="meatsFishAndDairyProducts" id="chicken" value="пилешко">
+                                            <label class="checkB" for="chicken">Пилешко</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="meatsFishAndDairyProducts" id="turkey" value="пуешко">
+                                            <label class="checkB" for="turkey">Пуешко</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="meatsFishAndDairyProducts" id="pig" value="свинско">
+                                            <label class="checkB" for="pig">Свинско</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="meatsFishAndDairyProducts" id="beef" value="телешко">
+                                            <label class="checkB" for="beef">Телешко</label>
+                                        </p>
+                                    </div>
+                                    <div class="col s12 l4 m4 checkDiv">
+                                        <p>
+                                            <input type="checkbox" name="meatsFishAndDairyProducts" id="fish" value="риба">
+                                            <label class="checkB" for="fish">Риба</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="meatsFishAndDairyProducts" id="shrimp" value="скариди">
+                                            <label class="checkB" for="shrimp">Скариди</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="meatsFishAndDairyProducts" id="curd" value="извара">
+                                            <label class="checkB" for="curd">Извара</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="meatsFishAndDairyProducts" id="soured-milk"
+                                                value="кисело мляко">
+                                            <label class="checkB" for="soured-milk">Кисело мляко</label>
+                                        </p>
+                                    </div>
+                                    <div class="col s12 l4 m4 checkDiv">
+                                        <p>
+                                            <input type="checkbox" name="meatsFishAndDairyProducts" id="almond-milk"
+                                                value="бадемово мляко">
+                                            <label class="checkB" for="almond-milk">Бадемово мляко</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="meatsFishAndDairyProducts" id="cocoa-milk"
+                                                value="кокосово мляко">
+                                            <label class="checkB" for="cocoa-milk">Кокосово мляко</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="meatsFishAndDairyProducts" id="cottage-cheese"
+                                                value="котидж сирене">
+                                            <label class="checkB" for="cottage-cheese">Котидж сирене</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="meatsFishAndDairyProducts" id="low-fat-cheese"
+                                                value="нискомаслено сирене">
+                                            <label class="checkB lowFat" for="low-fat-cheese">Нискомаслено сирене</label>
+                                        </p>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <p class="p-foods">Ядки, зърнено-бобови и други продукти</p>
+                                    <div class="warning-div row red-text center" id="nutsGrainsAndOtherProducts">Моля,
+                                        посочете поне
+                                        един продукт от тази секция.</div>
+                                    <div class="col s12 l4 m4 checkDiv">
+                                        <p>
+                                            <input type="checkbox" name="nutsGrainsAndOtherProducts" id="almond" value="бадем">
+                                            <label class="checkB" for="almond">Бадем</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="nutsGrainsAndOtherProducts" id="cashew" value="кашу">
+                                            <label class="checkB" for="cashew">Кашу</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="nutsGrainsAndOtherProducts" id="walnut" value="орехи">
+                                            <label class="checkB" for="walnut">Орехи</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="nutsGrainsAndOtherProducts" id="quinoa" value="киноа">
+                                            <label class="checkB" for="quinoa">Киноа</label>
+                                        </p>
+                                    </div>
+                                    <div class="col s12 l4 m4 checkDiv">
+                                        <p>
+                                            <input type="checkbox" name="nutsGrainsAndOtherProducts" id="flax-seed"
+                                                value="ленено семе">
+                                            <label class="checkB" for="flax-seed">Ленено семе</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="nutsGrainsAndOtherProducts" id="peanut-butter"
+                                                value="фъстъчено масло">
+                                            <label class="checkB" for="peanut-butter">Фъстъчено масло</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="nutsGrainsAndOtherProducts" id="oats" value="овес">
+                                            <label class="checkB" for="oats">Овес</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="nutsGrainsAndOtherProducts" id="rice" value="ориз">
+                                            <label class="checkB" for="rice">Ориз</label>
+                                        </p>
+                                    </div>
+                                    <div class="col s12 l4 m4 checkDiv">
+                                        <p>
+                                            <input type="checkbox" name="nutsGrainsAndOtherProducts" id="black-beans"
+                                                value="черен боб">
+                                            <label class="checkB" for="black-beans">Черен боб</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="nutsGrainsAndOtherProducts" id="peas" value="грах">
+                                            <label class="checkB" for="peas">Грах</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="nutsGrainsAndOtherProducts" id="eggs" value="яйца">
+                                            <label class="checkB" for="eggs">Яйца</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="nutsGrainsAndOtherProducts" id="mushrooms"
+                                                value="гъби">
+                                            <label class="checkB" for="mushrooms">Гъби</label>
+                                        </p>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <p class="p-foods">Плодове</p>
+                                    <div class="warning-div row red-text center" id="fruits">Моля, посочете поне
+                                        един продукт от тази секция.</div>
+                                    <div class="col s12 l4 m4 checkDiv">
+                                        <p>
+                                            <input type="checkbox" name="fruits" id="lemon" value="лимон">
+                                            <label class="checkB" for="lemon">Лимон</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="fruits" id="orange" value="портокал">
+                                            <label class="checkB" for="orange">Портокал</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="fruits" id="grapefruit" value="грейпфрут">
+                                            <label class="checkB" for="grapefruit">Грейпфрут</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="fruits" id="tangerine" value="мандарини">
+                                            <label class="checkB" for="tangerine">Мандарини</label>
+                                        </p>
+                                    </div>
+                                    <div class="col s12 l4 m4 checkDiv">
+                                        <p>
+                                            <input type="checkbox" name="fruits" id="apples" value="ябълки">
+                                            <label class="checkB" for="apples">Ябълки</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="fruits" id="strawberries" value="ягоди">
+                                            <label class="checkB" for="strawberries">Ягоди</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="fruits" id="brambles" value="къпини">
+                                            <label class="checkB" for="brambles">Къпини</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="fruits" id="blueberries" value="боровинки">
+                                            <label class="checkB" for="blueberries">Боровинки</label>
+                                        </p>
+                                    </div>
+                                    <div class="col s12 l4 m4 checkDiv">
+                                        <p>
+                                            <input type="checkbox" name="fruits" id="banana" value="банан">
+                                            <label class="checkB" for="banana">Банан</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="fruits" id="watermelon" value="диня">
+                                            <label class="checkB" for="watermelon">Диня</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="fruits" id="melon" value="пъпеш">
+                                            <label class="checkB" for="melon">Пъпеш</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="fruits" id="avocado" value="авокадо">
+                                            <label class="checkB" for="avocado">Авокадо</label>
+                                        </p>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <p class="p-foods">Зеленчуци</p>
+                                    <div class="warning-div row red-text center" id="vegetables">Моля, посочете поне
+                                        един продукт от тази секция.</div>
+                                    <div class="col s12 l4 m4 checkDiv">
+                                        <p>
+                                            <input type="checkbox" name="vegetables" id="tomatoes" value="домати">
+                                            <label class="checkB" for="tomatoes">Домати</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="vegetables" id="cucumbers" value="краставици">
+                                            <label class="checkB" for="cucumbers">Краставици</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="vegetables" id="peppers" value="чушки">
+                                            <label class="checkB" for="peppers">Чушки</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="vegetables" id="spinach" value="спанак">
+                                            <label class="checkB" for="spinach">Спанак</label>
+                                        </p>
+                                    </div>
+                                    <div class="col s12 l4 m4 checkDiv">
+                                        <p>
+                                            <input type="checkbox" name="vegetables" id="olives" value="маслини">
+                                            <label class="checkB" for="olives">Маслини</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="vegetables" id="asparagus" value="аспержи">
+                                            <label class="checkB" for="asparagus">Аспержи</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="vegetables" id="pumpkin" value="тиква">
+                                            <label class="checkB" for="pumpkin">Тиква</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="vegetables" id="broccoli" value="броколи">
+                                            <label class="checkB" for="broccoli">Броколи</label>
+                                        </p>
+                                    </div>
+                                    <div class="col s12 l4 m4 checkDiv">
+                                        <p>
+                                            <input type="checkbox" name="vegetables" id="salads" value="залени салати">
+                                            <label class="checkB" for="salads">Зелени салати</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="vegetables" id="brussels-sprouts" value="брюкселско зеле">
+                                            <label class="checkB" for="brussels-sprouts">Брюкселско зеле</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="vegetables" id="sweet-potatoes" value="сладък картоф">
+                                            <label class="checkB" for="sweet-potatoes">Сладък картоф</label>
+                                        </p>
+                                        <p>
+                                            <input type="checkbox" name="vegetables" id="potatoes" value="обикновен картоф">
+                                            <label class="checkB" for="potatoes">Обикновен картоф</label>
+                                        </p>
+                                    </div>
+                                </div>
+                                <input type="text" hidden id="invoiceNumber" value=""/>
+                                <div class="checkBT">
+                                <input type="checkbox" name="privacy" id="privacy" value="privacy">
+                                    <label class="checkB" for="privacy">Запознат съм и съм съгласен с <a href="pp.html" target="_blank">Политиката за поверителност</a> на
+                                        сайта.</label>
+                                </div>    
+                                <div class="warning-div row red-text center" id="privacyPolicy">Моля, запознайте се с политиката на сайта.</div>                          
+                                <div class="step-actions">
+                                        <div class="col s12 center">                                 
+                                            <button id="submit-button" class="waves-dark buttons2s btn-large" type="submit">ИЗПРАТИ
+                                                    <i class="material-icons right">send</i>
+                                            </button>
+                         </div>
+                        </div>
+                       </div>
+                      </div>  
+                     </div>
+                    </div>
+                  </form>
+
+
+    <form style="display: none;" action="https://regimes.yoannakamenova.bg/payment.php" method="POST" id="ePayForm">
+        <table>
+          <tr>
+            <td>Merchant Id</td>
+            <td><input type="text" name="min" id="min"  required title="Това поле е задължително."=" required title="Това поле е задължително."" /></td>
+          </tr>
+          <tr>
+            <td>Invoice Number</td>
+            <td>
+                
+              <input
+                type="text"
+                name="invoice"
+                id="invoice"
+                 required title="Това поле е задължително."=" required title="Това поле е задължително.""
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Product Description</td>
+            <td>
+              <input type="text" name="descr" id="regimeDescription"  required title="Това поле е задължително."=" required title="Това поле е задължително."" />
+            </td>
+          </tr>
+          <tr>
+            <td>Payment</td>
+            <td>
+              <input type="text" name="exp_date" id="expDate"  required title="Това поле е задължително."=" required title="Това поле е задължително.""
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Total Amount</td>
+            <td><input type="text" name="sum" id="regimePrice"  required title="Това поле е задължително."=" required title="Това поле е задължително."" /></td>
+          </tr>
+        </table>
+  
+        <input type="submit" value="Submit" />
+      </form>
+
+    <!-- SCRIPTS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <!-- jQueryValidation Plugin -->
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
+    <script src="materialize-stepper.min.js"></script>
+    <script src="form-validation.js"></script>
+</body>
+</html>

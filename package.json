@@ -1,0 +1,29 @@
+{
+  "name": "NPEM",
+  "version": "1.0.0",
+  "description": "This is a multi-page website that is cross-platform repsonsive, showcasing the following technologies and some of their features:   * HTML5   * CSS3  * Materialize Framework v0.100.2     * Sidenav     * Scrollfire     * Modals",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "minify": "postcss public/style.css > style1.css",
+    "uglify:dist": "uglify public/form-validation.js > form-validation1.js",
+    "uglify": "npm run uglify-es:dist"
+  },
+  "keywords": [],
+  "author": "Yanko Futekov",
+  "license": "ISC",
+  "dependencies": {
+    "activecampaign": "^1.2.5",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "jquery-validation": "^1.18.0",
+    "materialize-stepper": "^2.1.4",
+    "nodemon": "^1.18.6",
+    "npm": "^6.4.1",
+    "php-express": "0.0.3",
+    "postcss-cli": "^6.0.1"
+  },
+  "devDependencies": {
+    "cssnano": "^4.1.7"
+  }
+}
